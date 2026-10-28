@@ -45,6 +45,25 @@ public class NeighborhoodLibrary {
                         + " | Title: " + book.getTitle());
             }
             }
+            //prompt user to check out a book
+            System.out.print("Enter the ID of the book to check out, or X to go back: ");
+            String input = scanner.nextLine().trim();
+
+            //check if the user wants to return
+            if (input.equalsIgnoreCase("X")) {
+                return;
+            }
+
+            //iterate to check the name of book in the available books
+            for (Book book : library) {
+                if (book.getTitle().equalsIgnoreCase(input) && !book.isCheckedOut()) {
+                    System.out.print("Enter your name: ");
+                    String name = scanner.nextLine();
+                    book.checkedOut(name);
+                    System.out.println("Book checked out to " + name);
+                }
+            }
+
         }
          // method to check books that are checked out
          public static void checkedOutBooks(Scanner scanner, Book[] library){
