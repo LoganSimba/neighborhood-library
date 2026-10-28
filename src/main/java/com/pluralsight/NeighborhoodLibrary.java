@@ -15,8 +15,8 @@ public class NeighborhoodLibrary {
 
 
     }
-    // added a method to show what is in the library
-        public static ArrayList<Book> showAvaibleBooks(Scanner scanner, Book[] books) {
+    // added a method to create what is in the library
+        public static ArrayList<Book> createLibrary(Scanner scanner, Book[] books) {
             ArrayList<Book> library = new ArrayList<>();
 
             Book book1 = new Book(1, "978-0-06-112008-4", "To Kill a Mockingbird", false, "");
@@ -34,6 +34,23 @@ public class NeighborhoodLibrary {
 
             return library;
         }
+        // method that loops in the library and shows which book is available
+        public static void showAvailableBooks(Scanner scanner, Book[] library){
+            System.out.print("Available books: ");
+            //loop thorugh array of books and check if its checked out
+            for(Book book : library){
+                if (!book.isCheckedOut()) {
+                    System.out.println("ID: " + book.getId()
+                        + " | ISBN: " + book.getIsbn()
+                        + " | Title: " + book.getTitle());
+            }
+            }
+        }
 
-    }
+
+
+        }
+
+
+
 
