@@ -76,14 +76,29 @@ public class NeighborhoodLibrary {
                         + " | Title: " + book.getTitle()
                          + " | Checked out to: " + book.getCheckedOutTO());;
             }
+            }
 
-        }
 
     }
-
-
-
+    // asks for an ID and checks that book back in
+    public static void checkInBook(Scanner scanner, ArrayList<Book> library) {
+        System.out.print("Enter the name of the book to check in: ");
+        String search = scanner.nextLine().trim();
+        //iterate to fing check
+        for (Book book : library) {
+            if (book.getTitle().equalsIgnoreCase(search)  && book.isCheckedOut()) {
+                book.checkIn();
+                System.out.println(book.getTitle() + " has been checked in.");
+                return;
+            }
         }
+        System.out.println("No checked out book with that ID.");
+    }
+}
+
+
+
+
 
 
 
