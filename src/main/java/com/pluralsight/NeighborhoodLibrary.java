@@ -46,6 +46,21 @@ public class NeighborhoodLibrary {
             }
             }
         }
+         // method to check books that are checked out
+         public static void checkedOutBooks(Scanner scanner, Book[] library){
+            System.out.println("Checked out Books: ");
+            //iterate and check if the boolean is true
+            for(Book book : library){
+                if(book.isCheckedOut()){
+                 System.out.println("ID: " + book.getId()
+                        + " | ISBN: " + book.getIsbn()
+                        + " | Title: " + book.getTitle()
+                         + " | Checked out to: " + book.getCheckedOutTO());;
+            }
+
+        }
+
+    }
 
 
 
